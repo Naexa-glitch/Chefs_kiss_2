@@ -1,3 +1,40 @@
+<?php
+
+    /*namespace Medoo;
+    require 'Medoo.php';
+
+    $database = new Medoo([
+        // [required]
+        'type' => 'mysql',
+        'host' => 'localhost',
+        'database' => 'recipes',
+        'username' => 'root',
+        'password' => ''
+    ]);*/
+
+    require 'database.php';
+    // array -> $items = [];
+    if(isset($_POST)){
+        //var_dump($_POST);
+        $database->insert("tb_recipes", [
+            "recipe_name" => $_POST["recipe"],
+            "id_recipe_category" => $_POST["category"],
+            "recipe_prep_time" => $_POST["prep time"],
+            "recipe_cook_time" => $_POST["cook time"],
+            "recipe_total_time" => $_POST["total time"],
+            "recipe_yields" => $_POST["yields"],
+            "id_recipe_complex" => $_POST["complex"],
+            "is_featured" => $_POST["featured"],
+            "recipe_description" => $_POST["description"],
+            "recipe_ingredients" => $_POST["ingredients"],
+            "recipe_img" => "recipe-placeholder.png"
+        ]);
+
+        header("location: recipes.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +104,7 @@
         </section>
         <section class="col-md mt-5">
 
-            <label for="namerecipe" class="title-sm">Name</label>
+            <p for="namerecipe" class="title-sm">Name</p>
             <input id="namerecipe" type="text" class="rectangle-add" name="namerecipe"  required="" autofocus="" />
             <p class="mt-4 title-sm">Cooking time</p>
             <input type="text" class="rectangle-add" name="cooking time" required="" />
@@ -119,7 +156,7 @@
         </label>
     </section>
         <section class="col-md">
-            <button class="btn btn-danger btn-lg btn-block" type="submit">Submit</button>
+            <button class="btn btn-danger btn-lg btn-block" type="submit"> Submit</button>
         </section>
     
 

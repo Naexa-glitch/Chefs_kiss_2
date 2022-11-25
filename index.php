@@ -1,9 +1,11 @@
 <?php
+    require 'database.php';
 
-$status = true; //boolean
-$name = "string"; //string
-$val = 1234; //number 
-   
+    $categories = $database->select("tb_recipe_category","*");
+
+    $recipes = $database->select("tb_recipes","*");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -105,11 +107,25 @@ $val = 1234; //number
 
             <section class="container align-menu mt-1 gap-3 d-flex justify-content-around">
                 <section>
-                <a href="#"><img class="img-fluid m-auto curved-borders img-column" src="./imgs/sopa.jpg" alt="Sopa"></a> 
+
+                    <?php
+
+                        foreach ($recipes as $recipe){
+                            echo "<div class='col-3 mt-3 ms-3'><img src='../imgs/".$recipe["recipe_img"]."' class='img-fluid m-auto curved-borders img-column' alt='".$recipe["recipe_name"]."'><div class=''><h5 class=''>".$recipe["recipe_name"]."</p><a href='recipe.php?id_recipe=".$recipe["id_recipe"]."' class='btn btn-primary'>Recipe details</a>
+                            </div></div>";
+
+                        }
+
+                    ?>
+
+                </section>
+
+                <!-- <a href="#"><img class="img-fluid m-auto curved-borders img-column" src="./imgs/sopa.jpg" alt="Sopa"></a> 
                     <p class="title-md text-gray mt-3 ms-3">Sopa azteca</p> 
                 </section>
                 <section>
-                    <a href="#"><img class="img-fluid m-auto curved-borders img-column" src="./imgs/burger.jpg" alt="Burger"></a>
+
+                    <a href="recipe.php"><img class="img-fluid m-auto curved-borders img-column" src="./imgs/burger.jpg" alt="Burger"></a>
                     <p class="title-md text-gray mt-3 ms-3">Burger</p>
 
                 </section>
@@ -156,6 +172,9 @@ $val = 1234; //number
                 <a href="#"><img class="img-fluid m-auto curved-borders img-column" src="./imgs/steak-meat.jpg" alt="Steak meat"></a> 
                     <p class="title-md text-gray mt-3 ms-3">Steak meat</p> 
                 </section>
+
+                 -->
+
             </section>
 
 
