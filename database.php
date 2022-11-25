@@ -8,10 +8,10 @@
         $database = new Medoo([
 
             'type' => 'mysql',
-            'host' => 'localhost',
-            'data' => 'chefskiss',
-            'username' => 'root',
-            'password' => ''
+            'host' => 'db4free.net:3306',
+            'database' => 'chefskiss',
+            'username' => 'usuarioroot',
+            'password' => 'usuarioroot01'
 
         ]);
 

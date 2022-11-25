@@ -67,8 +67,8 @@
         </section>
         <section class="col-md mt-5">
 
-            <p class="title-sm">Name</p>
-            <input type="text" class="rectangle-add" name="name recipe"  required="" autofocus="" />
+            <label for="namerecipe" class="title-sm">Name</label>
+            <input id="namerecipe" type="text" class="rectangle-add" name="namerecipe"  required="" autofocus="" />
             <p class="mt-4 title-sm">Cooking time</p>
             <input type="text" class="rectangle-add" name="cooking time" required="" />
             <p class="mt-4 title-sm">Portions</p>
@@ -119,7 +119,7 @@
         </label>
     </section>
         <section class="col-md">
-            <button type="button" class="btn btn-danger btn-lg btn-block" type="submit">Submit</button>
+            <button class="btn btn-danger btn-lg btn-block" type="submit">Submit</button>
         </section>
     
 
